@@ -1,0 +1,41 @@
+body{
+    background-color: #171433;
+    color: #E0EBED;
+}
+
+.headerContainer{
+    background-color: #245382;
+    height: 100px;
+}
+
+#pageIcon{
+    position: relative;
+    left: 9px;
+    float: left;
+    
+    height: 90px;
+}
+
+#pageTitle{ 
+    position: relative;
+    top: 2px;
+    left: -16px;
+    font-size: 50px; 
+
+}
+
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 500px;
+    background-color: #245382;
+    border-radius: 20px;
+    padding: 5%;
+    box-shadow: 11px 7px #033566;
+}
+
+#subBtn{
+    width: 100%; 
+}

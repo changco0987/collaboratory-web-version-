@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS only Bootsrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper (bootstrap)-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <!--My CSS-->
+    <link rel="stylesheet" href="../css/login.css">
+
+    <link rel="icon" href="../Asset/AppIcon.ico">
+    <title>Collaboratory - log in or sign up</title>
+</head>
+<body>
+    <div class="row">
+
+        <div class="headerContainer">
+
+            <div  class="col-md-12">
+                <img src="../Asset/AppIcon.png" class="img-fluid" id="pageIcon" alt="page icon">
+                <br>
+                <h1 id="pageTitle">ollaboratory</h1>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                    <form action="checkCredentials.php" method="POST">
+                        <div class="form-group">
+                            <center>
+                                <h2>Log in</h2>
+                            </center>
+                            
+                        </div>
+                        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="useridTb" name="useridTb" placeholder="Enter UserID">
+                            <br>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="passwordTb" name="passwordTb" placeholder="Enter Password">
+
+                            <br>
+                            <button type="submit" class="btn btn-primary" id="subBtn">Submit</button>
+                            <br>
+                            <a href="forgotPassword.php">Forgot password</a>
+                            <br>
+                            <small>Don't have any account? <a href="register.php">Just Click here</a></small>
+                        </div>
+        
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</body>
+</html>
