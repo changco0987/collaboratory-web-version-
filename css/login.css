@@ -3,16 +3,14 @@ body{
     color: #E0EBED;
 }
 
-.headerContainer{
-    background-color: #245382;
-    height: 100px;
+#headerContainer{
+    background-color: #245382 !important;
 }
 
 #pageIcon{
     position: relative;
     left: 9px;
     float: left;
-    
     height: 90px;
 }
 
@@ -20,6 +18,7 @@ body{
     position: relative;
     top: 2px;
     left: -16px;
+    font-family: "Bahnschrift", Times, serif;
     font-size: 50px; 
 
 }
@@ -33,9 +32,10 @@ body{
     background-color: #245382;
     border-radius: 20px;
     padding: 5%;
-    box-shadow: 11px 7px #033566;
+    font-family:"Bahnschrift", Times, serif;
+    box-shadow: 8px 8px 8px 8px #033566;
 }
 
-#subBtn{
+#loginBtn{
     width: 100%; 
 }

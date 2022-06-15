@@ -16,43 +16,44 @@
     <title>Collaboratory - log in or sign up</title>
 </head>
 <body>
+
+<!--Page Title section-->
     <div class="row">
 
-        <div class="headerContainer">
-
-            <div  class="col-md-12">
+        <div class="col-sm-12 col-xs-12 col-md-12" id="headerContainer">
+            <header>
                 <img src="../Asset/AppIcon.png" class="img-fluid" id="pageIcon" alt="page icon">
                 <br>
                 <h1 id="pageTitle">ollaboratory</h1>
-            </div>
-
+            </header>
+               
         </div>
 
     </div>
 
-
+<!--Log in Form section-->
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-sm-12 col-xs-12 col-md-12">
             <div class="container">
                 <div class="d-flex justify-content-center">
                     <form action="checkCredentials.php" method="POST">
                         <div class="form-group">
                             <center>
-                                <h2>Log in</h2>
+                                <h2>Welcome</h2>
                             </center>
                             
                         </div>
                         <hr style="height:2px;border-width:0;color:gray;background-color:gray">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="useridTb" name="useridTb" placeholder="Enter UserID">
+                            <input type="text" class="form-control" id="useridTb" name="useridTb" placeholder="Enter UserID" required>
                             <br>
                         </div>
 
                         <div class="form-group">
-                            <input type="password" class="form-control" id="passwordTb" name="passwordTb" placeholder="Enter Password">
+                            <input type="password" class="form-control" id="passwordTb" name="passwordTb" placeholder="Enter Password" minlength="8" maxlength="15" required>
 
                             <br>
-                            <button type="submit" class="btn btn-primary" id="subBtn">Submit</button>
+                            <button type="submit" class="btn btn-primary" id="loginBtn">Log In</button>
                             <br>
                             <a href="forgotPassword.php">Forgot password</a>
                             <br>
