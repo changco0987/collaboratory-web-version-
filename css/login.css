@@ -11,13 +11,13 @@ body{
     position: relative;
     left: 9px;
     float: left;
-    height: 90px;
+    height: 87px;
 }
 
 #pageTitle{ 
     position: relative;
-    top: 2px;
-    left: -16px;
+    top: 5px;
+    left: -13px;
     font-family: "Bahnschrift", Times, serif;
     font-size: 50px; 
 
@@ -31,9 +31,9 @@ body{
     width: 500px;
     background-color: #245382;
     border-radius: 20px;
-    padding: 5%;
+    padding: 3%;
     font-family:"Bahnschrift", Times, serif;
-    box-shadow: 8px 8px 8px 8px #033566;
+    box-shadow: 5px 5px 10px 5px black;
 }
 
 #loginBtn{
