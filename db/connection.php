@@ -8,6 +8,10 @@
     $conn = pg_connect("host=".$server. " port=".$port. " dbname=".$dbname. " user=".$dbusername. " password=".$dbpassword);
 
 
+
+
+
+
     #if($conn)
     #{
     #    $query = pg_query($conn,"select * from tb_useraccounts");
