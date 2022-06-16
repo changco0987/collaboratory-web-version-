@@ -1,0 +1,77 @@
+body{
+    background-color: #171433;
+    color: #E0EBED;
+    font-family:"Bahnschrift", Times, serif;
+}
+#profileContainer{
+    background-color: #245382;
+    border-radius: 5px;
+    box-shadow: -4px 5px 5px black;
+
+}
+
+#repoContainer{
+    background-color:#245382;
+    height: 900px;
+    border-radius: 5px;
+    box-shadow: 4px 5px 5px black;
+}
+
+#sectionContainer{
+    height: 100%;
+
+    
+}
+
+#profilepic{
+    margin-top: 200px;
+}
+#username{
+
+}
+#userid{
+    margin-top: -10px;
+    font-size: 20px;
+
+}
+
+.btn-label {
+	position: relative;
+	left: -12px;
+	display: inline-block;
+	padding: 6px 12px;
+	border-radius: 3px 0 0 3px;
+}
+
+.btn-labeled {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.btn {
+	margin-bottom: 10px;
+    width: 65%;
+}
+
+#createRepoBtn{
+    margin-top: 30%;
+}
+
+#repoListHead{
+
+    border-radius: 5px;
+    background-color: #245382;
+}
+#tableTitle{
+    position: relative;
+	left: -7px;
+	display: inline-block;
+	padding: 6px 12px;
+    margin-top: 2%;
+    margin-left: 1%;
+}
+
+.bi-folder-fill{
+    font-size: 27px;
+    margin-left: 2%;
+}

@@ -1,0 +1,17 @@
+body{
+    background-color: #245382;
+    color: #E0EBED;
+}
+
+
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-family:"Bahnschrift", Times, serif;
+}
+
+#submitBtn{
+    width: 60%;
+}
