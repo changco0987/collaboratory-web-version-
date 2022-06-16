@@ -2,3 +2,60 @@ body{
     background-color: #245382;
     color: #E0EBED;
 }
+
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-family:"Bahnschrift", Times, serif;
+}
+
+.birthdayContainer{
+    position: relative;
+    float: left;
+}
+
+.birthdayLb{
+    position: relative; 
+    top: 20px;
+    left: 60pc;
+    transform: translateY(-10%) translateX(-90%);
+}
+
+#birthday{
+    position: relative;
+    float: left;
+    border-radius: 5px;
+    width: 86%;
+    top: -2px;
+}
+
+
+.genderContainer{
+    position: relative;
+    float: right;
+    top: -2px;
+    transform: translateY(-45%) translateX(-40%);
+}
+#firstnameTb{
+    position: relative;
+    float: left;
+    width: 43%;
+}
+#lastnameTb{
+    position: relative;
+    float: right;   
+    width: 43%;
+    left: -50px;
+}
+
+#emailTb,#useridTb,#passwordTb,#confirmpassTb{
+    width: 90%;
+}
+
+#submitBtn{
+    position: relative;
+    left: -5%;
+    width: 50%;
+}
