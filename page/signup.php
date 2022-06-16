@@ -28,7 +28,7 @@
         <div class="col-sm-12">
             <div class="container">
                 <div class="d-flex justify-content-center">
-                    <form action="checkCredentials.php" method="POST">
+                    <form action="../controller/createAccount.php" method="POST">
                         <div class="form-group">
                             <h2>Sign Up</h2>
                         </div>
@@ -52,13 +52,13 @@
                                 <label for="">Gender</label>
                                 <br>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="maleRadio" checked>
+                                    <input class="form-check-input" type="radio" name="genderRb" id="maleRadio" value="Male" checked>
                                     <label class="form-check-label" for="maleRadio">
                                         male
                                     </label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="femaleRadio">
+                                    <input class="form-check-input" type="radio" name="genderRb" id="femaleRadio" value="Female">
                                     <label class="form-check-label" for="femaleRadio">
                                         female
                                     </label>
