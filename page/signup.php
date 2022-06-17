@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <div class="birthdayContainer">
                                 <label for="birthday" id="birthdayLb">Birthday</label>
-                                <input class="form-control" type="date" id="birthday" name="birthday">
+                                <input class="form-control" type="date" id="birthday" name="birthday" required>
                             </div>
 
                             <br>
@@ -91,6 +91,18 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="row">
+
+        <footer class=" text-center text-lg-end fixed-bottom">
+            <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    Download Desktop Version:
+                    <a class="" href="https://drive.google.com/u/2/uc?id=1kNO00NIB4ouuuiWlh9S9GOZkii-fa5KU&export=download" target="_blank">Collaboratory.App</a>
+                </div>
+            <!-- Copyright -->
+        </footer>
     </div>
 </body>
 </html>

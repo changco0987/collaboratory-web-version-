@@ -33,7 +33,7 @@ body{
     border-radius: 20px;
     padding: 3%;
     font-family:"Bahnschrift", Times, serif;
-    box-shadow: 5px 5px 10px 5px black;
+    box-shadow: -1px 1px 20px 6px black;
 }
 
 #loginBtn{

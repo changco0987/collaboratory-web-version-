@@ -18,7 +18,7 @@
 <body>
 
 <!--Page Title section-->
-    <div class="row">
+    <div class="row fixed-top">
 
         <div class="col-sm-12 col-xs-12 col-md-12 flex-column" id="headerContainer">
             <header>
@@ -33,7 +33,7 @@
 
 <!--Log in Form section-->
     <div class="row">
-        <div class="col-sm-12 col-xs-12 col-md-12">
+        <div class="col-xs-12 col-sm-12 col-xs-12 col-md-12">
             <div class="container">
                 <div class="d-flex justify-content-center">
                     <form action="checkCredentials.php" method="POST">
@@ -51,20 +51,30 @@
 
                         <div class="form-group">
                             <input type="password" class="form-control" id="passwordTb" name="passwordTb" placeholder="Enter Password" minlength="8" maxlength="15" required>
+
+                            <a href="../page/resetpass.php" style="font-size: 13px; font-style:normal;">Forgot password?</a>
+                            <br>
                             <br>
                             <button type="submit" class="btn btn-primary" id="loginBtn">Log In</button>
                             <br>
-                            <a href="forgotPassword.php">Forgot password</a>
-                            <br>
-                            <small>Don't have any account? <a href="register.php">Just Click here</a></small>
+                            <small>Don't have any account? <a href="../page/signup.php">Just Click here</a></small>
                         </div>
         
                     </form>
                 </div>
             </div>
         </div>
-
-
+    </div>
+<!--Footer Section-->
+    <div class="row">
+        <footer class=" text-center text-lg-end fixed-bottom">
+            <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    Download Desktop Version:
+                    <a class="" href="https://drive.google.com/u/2/uc?id=1kNO00NIB4ouuuiWlh9S9GOZkii-fa5KU&export=download" target="_blank">Collaboratory.App</a>
+                </div>
+            <!-- Copyright -->
+        </footer>
     </div>
 
 </body>
