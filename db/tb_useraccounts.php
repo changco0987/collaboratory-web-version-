@@ -15,6 +15,28 @@
     function ReadUser($conn,$userdata = new Userdata)
     {
         
+
+        if(!empty($userdata->getId()))
+        {
+            $dbData = pg_query($conn,"select * from tb_useraccounts where account_id = " .$userdata->getId());
+        }
+        else if(!empty($userdata->getEmail()))
+        {
+            $dbData = pg_query($conn, "select * from tb_useraccounts where email = '" .$userdata->getEmail(). "'");
+        }
+        else if(!empty($userdata->getUserId()))
+        {
+            $dbData = pg_query($conn, "select * from tb_useraccounts where userid = '" .$userdata->getUserId(). "'");
+
+        }
+        else
+        {
+            $dbData = pg_query($conn,"select * from tb_useraccounts");
+        }
+
+        return $dbData;
+        die();
+
     }
 
     function UpdateUser($conn,$userdata = new Userdata)

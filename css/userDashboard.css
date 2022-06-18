@@ -23,9 +23,6 @@ body{
     
 }
 
-#profilepic{
-    margin-top: 200px;
-}
 #username{
 
 }
@@ -57,11 +54,6 @@ body{
     margin-top: 30%;
 }
 
-#repoListHead{
-
-    border-radius: 5px;
-    background-color: #245382;
-}
 #tableTitle{
     position: relative;
 	left: -7px;
@@ -74,4 +66,19 @@ body{
 .bi-folder-fill{
     font-size: 27px;
     margin-left: 2%;
+}
+tr {
+    width: 100%;
+    display: inline-table;
+    }
+    
+.table{
+    height:300px;             
+    display: -moz-groupbox;    
+}
+tbody{
+    overflow-y: scroll;      
+    height: 200px;           
+    width: 100%;
+    position: absolute;
 }

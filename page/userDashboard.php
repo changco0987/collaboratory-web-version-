@@ -27,9 +27,9 @@
     <div class="container-fluid mt-3 flex-fill" id="sectionContainer">
 
       <div class="row ps-3 pe-3 ms-2 me-2">
-        <div class="text-center col-md-4" id="profileContainer" >
-            <img class="rounded-circle mx-auto" id="profilepic" alt="80x80" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
-            data-holder-rendered="true">
+        <div class="text-center col-sm-4 col-md-5 col-lg-4 col-xl-3 col-xxl-3" id="profileContainer" >
+            <img class="img-fluid h-25 w-50" id="profilepic" alt="50x50" src="../Asset/onah.jpg"
+            data-holder-rendered="true" style="border-radius: 50%;">
             <h3 class="text-center" id="username">user name</h3>
             <p class="text-center" id="userid">user id</p>
             <!--Buttons-->
@@ -41,9 +41,9 @@
               <button type="button" class="btn btn-primary" id="signoutBtn">
                 <span class="btn-label"><i class="bi-back"></i></span>Sign-out</button>
             </div>
-            
         </div>
-        <div class="col-md-8" id="repoContainer">
+
+        <div class="col-sm-8 col-md-7 col-lg-8 col-xl-9 col-xxl-9" id="repoContainer">
           <!--Table title-->
           <i class="bi-folder-fill"></i><h4 id="tableTitle">My Repository</h4>
           <table class="table" style="background-color: #171433; color: #E0EBED; border-radius: 10px;">
@@ -52,15 +52,84 @@
             </thead>
             <tbody>
               <tr>
-                <td>Mark</td>
                 <td>Otto</td>
               </tr>
               <tr>
-                <td>Mark</td>
                 <td>Otto</td>
               </tr>      
               <tr>
-                <td>Mark</td>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+              </tr>      
+              <tr>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+              </tr>      
+              <tr>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+              </tr>      
+              <tr>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+              </tr>      
+              <tr>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+              </tr>      
+              <tr>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+              </tr>      
+              <tr>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+              </tr>      
+              <tr>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <td>Otto</td>
+              </tr>      
+              <tr>
                 <td>Otto</td>
               </tr>
             </tbody>
