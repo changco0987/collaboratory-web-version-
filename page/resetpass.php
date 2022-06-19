@@ -12,6 +12,16 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
         <!--My CSS-->
         <link rel="stylesheet" href="../css/resetpass.css">
+        <!--Email API-->
+        <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+        </script>
+        <script type="text/javascript">
+        (function(){
+            emailjs.init("xtR1f_gCXopVKsFwG");
+        })();
+        </script>
+        <script type="text/javascript" src="../script/email.js"></script>
 
 
 
@@ -56,7 +66,17 @@
             </div>
         </div>
     </div>
-
+<!--Footer Section-->
+    <div class="row">
+        <footer class=" text-center text-lg-end fixed-bottom">
+            <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    Download Desktop Version:
+                    <a class="" href="https://drive.google.com/u/2/uc?id=1kNO00NIB4ouuuiWlh9S9GOZkii-fa5KU&export=download" target="_blank">Collaboratory.App</a>
+                </div>
+            <!-- Copyright -->
+        </footer>
+    </div>
 
 
 </body>

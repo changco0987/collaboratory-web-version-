@@ -35,7 +35,6 @@
         }
 
         return $dbData;
-        die();
 
     }
 
@@ -46,7 +45,7 @@
 
     function DeleteUser($conn,$userdata = new Userdata)
     {
-
+        pg_query($conn,"delete from tb_useraccounts where account_id = "+$userdata->getId());
     }
  
     #if($conn)

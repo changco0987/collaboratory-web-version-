@@ -11,11 +11,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <!--My CSS-->
     <link rel="stylesheet" href="../css/login.css">
+    <!--Email API-->
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init("xtR1f_gCXopVKsFwG");
+    })();
+    </script>
+    <script type="text/javascript" src="../script/email.js"></script>
 
+
+
+    <!--My Javascript-->
     <link rel="icon" href="../Asset/AppIcon.ico">
-    <title>Collaboratory - log in or sign up</title>
+
+    <title>Collaboratory - reset password</title>
 </head>
 <body>
+
 
 <!--Page Title section-->
     <div class="row fixed-top">
@@ -39,25 +54,18 @@
                     <form action="checkCredentials.php" method="POST">
                         <div class="form-group">
                             <center>
-                                <h2>Welcome</h2>
+                                <h2>Find your account</h2>
                             </center>
                             
                         </div>
                         <hr style="height:2px;border-width:0;color:gray;background-color:gray">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="useridTb" name="useridTb" placeholder="Enter UserID" maxlength="20" required>
+                            <input type="email" class="form-control" id="emailTb" name="emailTb" placeholder="Enter Email Address" maxlength="100" required>
                             <br>
                         </div>
 
                         <div class="form-group">
-                            <input type="password" class="form-control" id="passwordTb" name="passwordTb" placeholder="Enter Password" minlength="8" maxlength="15" required>
-
-                            <a class="text-dark" href="../page/authentication.php" style="font-size: 13px; font-style:normal;">Forgot password?</a>
-                            <br>
-                            <br>
-                            <button type="submit" class="btn btn-primary" id="loginBtn">Log In</button>
-                            <br>
-                            <small>Don't have any account? <a class="text-dark" href="../page/signup.php">Just Click here</a></small>
+                            <button type="submit" class="btn btn-primary" id="loginBtn">Request Code</button>
                         </div>
         
                     </form>
@@ -76,6 +84,6 @@
             <!-- Copyright -->
         </footer>
     </div>
-
+    
 </body>
 </html>
