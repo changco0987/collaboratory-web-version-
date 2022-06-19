@@ -5,6 +5,12 @@ function gotoLogin()
     window.location = "../page/login.php";
 }
 
+//Function to open resetPass page
+function gotoResetPass()
+{
+    window.location = "../page/resetpass.php";
+}
+
 //Email notification after creating account
 function accountCreateMsg(userId,reciever)
 {
@@ -13,7 +19,7 @@ function accountCreateMsg(userId,reciever)
               "this will also be used to add you as a participant to repositories.";
 
 
-    emailjs.send("service_ztr1jtm","template_iin6q2v",{
+    emailjs.send("service_xesip3f","template_a3tsbpa",{
         subject: sub,
         message: msg,
         email_to: reciever,
@@ -40,7 +46,7 @@ function passwordUpdateNotif(userId,reciever)
     var sub = "Your password has been updated!";
     var msg = "Hi, "+userId+" You have successfully reset your collaboratory account password. Thank you for using Collaboratory";
 
-    emailjs.send("service_ztr1jtm","template_iin6q2v",{
+    emailjs.send("service_xesip3f","template_a3tsbpa",{
         subject: sub,
         message: msg,
         email_to: reciever,
@@ -57,7 +63,7 @@ function accountDeleteNotif(userId,reciever)
     var sub = "Your account has been deleted!";
     var msg = "Hi, " + userId + " You have successfully deleted your account in our server. Thank you for using Collaboratory hoping to see you soon";
 
-    emailjs.send("service_ztr1jtm","template_iin6q2v",{
+    emailjs.send("service_xesip3f","template_a3tsbpa",{
         subject: sub,
         message: msg,
         email_to: reciever,
@@ -74,7 +80,7 @@ function accountUpdateMsg(userId,reciever)
     var sub = "Your account information has been updated!";
     var msg = "Hi, " + userId + " You have successfully updated your account information in our server. Thank you for using Collaboratory";
 
-    emailjs.send("service_ztr1jtm","template_iin6q2v",{
+    emailjs.send("service_xesip3f","template_a3tsbpa",{
         subject: sub,
         message: msg,
         email_to: reciever,

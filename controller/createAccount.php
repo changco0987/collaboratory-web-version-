@@ -20,13 +20,10 @@ src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
     $userdata->setUserId($_POST['useridTb']);
 
 
-
-
     $rowCount = pg_num_rows(ReadUser($conn,$userdata));
     #this function will check if the userid is already taken by another user, if the rowCount is > 0 it means it retrieve same userid in database
     if($rowCount==0)
     {
-
 
         $userdata->setPassword(strtoupper(hash('sha256',$_POST['passwordTb'])));
         $userdata->setBirthday($_POST['birthday']);
@@ -44,14 +41,13 @@ src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
             #this will send an email to the user
             ?>
             <script>
-                accountCreateMsg(<?php echo "'" .$userdata->getUserId(). "'";?> ,<?php echo "'" .$userdata->getEmail(). "'";?>);
+                //accountCreateMsg(<?php echo "'" .$userdata->getUserId(). "'";?> ,<?php echo "'" .$userdata->getEmail(). "'";?>);
                 setTimeout(gotoLogin,1000);//To make sure that the accountCreateMsg() function will execute before going to the next page
             </script>
             <?php
 
             exit();
         }
-
 
     }
 

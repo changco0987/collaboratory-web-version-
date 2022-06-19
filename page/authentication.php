@@ -17,7 +17,7 @@
     </script>
     <script type="text/javascript">
     (function(){
-        emailjs.init("xtR1f_gCXopVKsFwG");
+        emailjs.init("dobrxlK8yXAf4Owqb");
     })();
     </script>
     <script type="text/javascript" src="../script/email.js"></script>
@@ -51,7 +51,7 @@
         <div class="col-xs-12 col-sm-12 col-xs-12 col-md-12">
             <div class="container">
                 <div class="d-flex justify-content-center">
-                    <form action="checkCredentials.php" method="POST">
+                    <form action="../controller/resetPassword.php" method="POST">
                         <div class="form-group">
                             <center>
                                 <h2>Find your account</h2>
