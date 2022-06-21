@@ -25,7 +25,7 @@ src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
     if($rowCount==0)
     {
 
-        $userdata->setPassword(strtoupper(hash('sha256',$_POST['passwordTb'])));
+        $userdata->setPassword($_POST['passwordTb']);
         $userdata->setBirthday($_POST['birthday']);
         $userdata->setGender($_POST['genderRb']);
         $userdata->setEmail($_POST['emailTb']);

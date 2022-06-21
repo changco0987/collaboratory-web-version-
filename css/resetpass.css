@@ -15,3 +15,8 @@ body{
 #submitBtn{
     width: 60%;
 }
+
+#useridTb{
+    background-color: lightgrey;
+    color: #171433;
+}

@@ -11,6 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <!--My CSS-->
     <link rel="stylesheet" href="../css/login.css">
+
+    
     <!--Email API-->
     <script type="text/javascript"
     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
@@ -22,14 +24,15 @@
     </script>
     <script type="text/javascript" src="../script/email.js"></script>
 
-
-
     <!--My Javascript-->
     <link rel="icon" href="../Asset/AppIcon.ico">
 
     <title>Collaboratory - reset password</title>
 </head>
 <body>
+<?php 
+    unset($_SESSION['userid']);
+?>
 
 
 <!--Page Title section-->
@@ -51,7 +54,7 @@
         <div class="col-xs-12 col-sm-12 col-xs-12 col-md-12">
             <div class="container">
                 <div class="d-flex justify-content-center">
-                    <form action="../controller/resetPassword.php" method="POST">
+                    <form action="../controller/userAuthentication.php" method="POST">
                         <div class="form-group">
                             <center>
                                 <h2>Find your account</h2>
@@ -67,12 +70,17 @@
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary" id="loginBtn">Request Code</button>
                         </div>
-        
+                        <br>
+                        <div id="errorCode" style="background-color: #FF6D6A; padding: 15px 5px 1px 5px; border-radius: 4px;">
+                            <p id="errorMsg" style="font-size: 13px;">Your email address doesn't have a linked account</p>
+                        </div>
                     </form>
+           
                 </div>
             </div>
         </div>
     </div>
+
 <!--Footer Section-->
     <div class="row">
         <footer class=" text-center text-lg-end fixed-bottom">
@@ -86,4 +94,21 @@
     </div>
     
 </body>
+    <!--alert message script-->
+    <script>
+        document.getElementById('errorCode').style.display = 'none';
+        document.getElementById('errorMsg').style.display = 'none';
+        var successSignal = localStorage.getItem('state');
+
+        if(successSignal==1)
+        { 
+            document.getElementById('errorCode').style.display = 'block';
+            document.getElementById('errorMsg').style.display = 'block';
+            console.log("okay");
+
+        }
+
+        //To make signl back to normmal and to prevent for the success page to appear every time the page was reload or refresh
+        localStorage.setItem('state',0);
+    </script>
 </html>

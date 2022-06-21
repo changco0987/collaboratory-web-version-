@@ -1,55 +1,47 @@
-<!--Email API-->
-<script type="text/javascript"
-src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
-</script>
-<script type="text/javascript">
-(function(){
-    emailjs.init("dobrxlK8yXAf4Owqb");
-})();
-</script>
-<script type="text/javascript" src="../script/email.js"></script>
+<?php 
 
-<?php
     include_once '../db/connection.php';
-    require '../Model/Userdata.php';
+    require_once '../Model/Userdata.php';
     require_once '../db/tb_useraccounts.php';
 
+    session_start();
     $userdata = new Userdata();
-    $userdata->setEmail($_POST['emailTb']);
-    
-    $rowCount = pg_num_rows(ReadUser($conn,$userdata));
+    $userdata->setId($_SESSION['account_id']);
 
-    #it means is fetch the data in database
-    if($rowCount>0)
+    $row = pg_fetch_assoc(ReadUser($conn,$userdata));
+
+    if($_POST['passwordTb'] == $_POST['confirmpassTb'])
     {
-       $dbData = pg_fetch_assoc(ReadUser($conn,$userdata));
-        
-        print_r($dbData);
-        #this will generate a random key that the user can use to reset their password
-        $uak = rand(11111111, 99999999);
+        //This will check if the inputted uak is equal to the uak in database
+        if($row['uak'] == $_POST['uakTb'])
+        {
+            $userdata->setFirstName($row['firstname']);
+            $userdata->setLastName($row['lastname']);
+            $userdata->setUserId($row['userid']);
+            $userdata->setPassword($_POST['passwordTb']);
+            $userdata->setBirthday($row['birthday']);
+            $userdata->setGender($row['gender']);
+            $userdata->setProfilePicName($row['profilepicname']);
+            $userdata->setUak("");
+            $userdata->setEmail($row['email']);
 
-        session_start();
-
-        $_SESSION['account_id'] = $dbData['account_id'];
-        #UserLoginData::setId($dbData['account_id']);
-        UserLoginData::setuserId($dbData['userid']);
-        UserLoginData::$uak = $uak;
-
-        echo UserLoginData::$userId;
-        $userdata->setUak($uak);
-
-        #this will send an email to the user
-        ?>
-            <script>
-                //resetCodeMsg(<?php echo "'" .$userdata->getUak(). "'";?> ,<?php echo "'" .$userdata->getEmail(). "'";?>);
-                setTimeout(gotoResetPass,1000);//To make sure that the accountCreateMsg() function will execute before going to the next page
-            </script>
-        <?php
-        
+            UpdateUser($conn,$userdata);
+            
+            echo '<script> window.location = "../page/login.php";</script>';
+        }
+        else
+        {
+            //error notification incase that the inputted email address doesn't have a linked to the database
+            echo '<script> localStorage.setItem("state",2); window.location = "../page/resetpass.php";</script>';
+        }
     }
     else
     {
-
+        //error notification incase that the inputted email address doesn't have a linked to the database
+        echo '<script> localStorage.setItem("state",1); window.location = "../page/resetpass.php";</script>';
     }
+
+  
+
 
 ?>

@@ -22,7 +22,7 @@
 
         public function setFirstName($firstName)
         {
-            $this->firstName = $firstName;
+            $this->firstName = strtolower($firstName);
         }
 
         #lastname
@@ -34,7 +34,7 @@
 
         public function setLastName($lastName)
         {
-            $this->lastName = $lastName;
+            $this->lastName = strtolower($lastName);
         }
 
         #userId
@@ -46,7 +46,7 @@
 
         public function setUserId($userId)
         {
-            $this->userId = $userId;
+            $this->userId = strtolower($userId);
         }
 
         #password
@@ -58,7 +58,8 @@
 
         public function setPassword($password)
         {
-            $this->password = $password;
+            //This will hash the string to SHA256 
+            $this->password = strtoupper(hash('sha256',$password));
         }
 
         #birthday
@@ -124,29 +125,6 @@
     }
 
 
-    Class UserLoginData
-    {
-        public static $id;
-        public static $firstName;
-        public static $lastName;
-        public static $userId;
-        public static $password;
-        public static $birthday;
-        public static $gender;
-        public static $profilePicName;
-        public static $uak;
-        public static $email;
-
-        public static function setuserId($data)
-        {
-            self::$userId = $data;
-        }
-        public static function getuserId()
-        {
-            return self::$userId;
-        }
-
-
-    }
+   
 
 ?>

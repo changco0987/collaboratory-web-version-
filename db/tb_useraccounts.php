@@ -40,7 +40,9 @@
 
     function UpdateUser($conn,$userdata = new Userdata)
     {
-
+        pg_query($conn,"update tb_useraccounts set firstname = '".$userdata->getFirstName()."', lastname='".$userdata->getLastName()."', userid='".$userdata->getUserId()."',".
+        " password='".$userdata->getPassword()."', birthday='".$userdata->getBirthday()."', gender = '".$userdata->getGender()."', profilepicname = '".$userdata->getProfilePicName().
+        "',uak = '".$userdata->getUak()."', email = '".$userdata->getEmail()."' where account_id =".$userdata->getId());
     }
 
     function DeleteUser($conn,$userdata = new Userdata)

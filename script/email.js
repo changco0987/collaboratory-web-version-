@@ -34,7 +34,7 @@ function accountCreateMsg(userId,reciever)
 function resetCodeMsg(uak,reciever)
 {
     var sub = "";
-    emailjs.send("service_ztr1jtm","template_ja8yxqn",{
+    emailjs.send("service_xesip3f","template_dbz4ojt",{
         uak: uak,
         email_to: reciever,
         });

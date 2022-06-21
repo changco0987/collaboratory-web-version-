@@ -30,6 +30,13 @@
     <title>Collaboratory - reset password</title>
 </head>
 <body>
+    
+<div class="alert alert-danger alert-dismissible fade show" id="errorCode" role="alert">
+  <div id="errorMsg">
+    Password doesn't match!
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+</div>
 
     <div class="row">
         <div class="col-sm-12">
@@ -42,14 +49,13 @@
                             </center>
                         </div>
                         <?php
-                            require_once '../controller/resetPassword.php';
-                             echo UserLoginData::getuserId()."asdada";
+                            session_start();
                         ?>
                         <hr style="height:2px;border-width:0;color:gray;background-color:gray">
                         <div class="form-group">                         
-                            <input type="text" class="form-control" id="useridTb" name="useridTb" placeholder="UserID"  value="<?php echo $_SESSION['account_id']; ?>" readonly required>
+                            <input type="text" class="form-control" id="useridTb" name="useridTb" placeholder="UserID"  value="<?php echo $_SESSION['userid']; ?>" readonly required>
                             <br>
-                            <input type="text" class="form-control" id="uakTb" name="uakTb" placeholder="Unique Account Key" value="<?php echo UserLoginData::$userId; ?>" required>
+                            <input type="text" class="form-control" id="uakTb" name="uakTb" placeholder="Unique Account Key" required>
                             <br>  
                             <input type="password" class="form-control" id="passwordTb" name="passwordTb" placeholder="New password" minlength="8" maxlength="15" required>
                             <br>                            
@@ -80,10 +86,30 @@
         </footer>
     </div>
 
-    <?php
-    die();
-        exit();
-    ?>
+  <!--alert message script-->
+  <script>
 
+        document.getElementById('errorCode').style.display = 'none';
+        document.getElementById('errorMsg').style.display = 'none';
+        var successSignal = localStorage.getItem('state');
+
+        if(successSignal==1)
+        { 
+            document.getElementById('errorCode').style.display = 'block';
+            document.getElementById('errorMsg').style.display = 'block';
+            console.log("okay");
+
+        }
+        else if(successSignal==2)
+        {
+            document.getElementById('errorCode').style.display = 'block';
+            document.getElementById('errorMsg').style.display = 'block';
+            document.getElementById('errorMsg').innerHTML = 'Error! Unique Account Key incorrect';
+            console.log("okay");
+        }
+
+        //To make signl back to normmal and to prevent for the success page to appear every time the page was reload or refresh
+        localStorage.setItem('state',0);
+    </script>
 </body>
 </html>
