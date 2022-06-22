@@ -36,7 +36,7 @@
         <div class="col-xs-12 col-sm-12 col-xs-12 col-md-12">
             <div class="container">
                 <div class="d-flex justify-content-center">
-                    <form action="checkCredentials.php" method="POST">
+                    <form action="../controller/retrieveAccount.php" method="POST">
                         <div class="form-group">
                             <center>
                                 <h2>Welcome</h2>

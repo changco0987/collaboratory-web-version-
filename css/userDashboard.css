@@ -7,6 +7,7 @@ body{
     background-color: #245382;
     border-radius: 5px;
     box-shadow: -4px 5px 5px black;
+    padding-top: 150px;
 
 }
 
@@ -19,13 +20,13 @@ body{
 
 #sectionContainer{
     height: 100%;
-
-    
+  
 }
 
 #username{
-
+    margin-top: 30px;
 }
+
 #userid{
     margin-top: -10px;
     font-size: 20px;
@@ -51,7 +52,11 @@ body{
 }
 
 #createRepoBtn{
-    margin-top: 30%;
+    margin-top: 55%;
+}
+
+#btnContainer{
+    margin-top: 90px;
 }
 
 #tableTitle{
@@ -67,18 +72,19 @@ body{
     font-size: 27px;
     margin-left: 2%;
 }
-tr {
-    width: 100%;
-    display: inline-table;
-    }
+
     
-.table{
-    height:300px;             
-    display: -moz-groupbox;    
+.list-group{
+    max-height: 800px;
+    margin-bottom: 10px;
+    overflow-y:scroll;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 5px;
+
 }
-tbody{
-    overflow-y: scroll;      
-    height: 200px;           
-    width: 100%;
-    position: absolute;
+
+.list-group-item{
+    background-color: #171433;
+    color: #E0EBED;
+
 }

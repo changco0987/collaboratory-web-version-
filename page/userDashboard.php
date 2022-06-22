@@ -30,10 +30,11 @@
         <div class="text-center col-sm-4 col-md-5 col-lg-4 col-xl-3 col-xxl-3" id="profileContainer" >
             <img class="img-fluid h-25 w-50" id="profilepic" alt="50x50" src="../Asset/onah.jpg"
             data-holder-rendered="true" style="border-radius: 50%;">
+
             <h3 class="text-center" id="username">user name</h3>
             <p class="text-center" id="userid">user id</p>
             <!--Buttons-->
-            <div valign="btnContainer">
+            <div class="btnContainer">
               <button type="button" class="btn btn-primary" id="createRepoBtn">
                 <span class="btn-label"><i class="bi-folder"></i></span>Create Repository</button>
               <button type="button" class="btn btn-primary" id="accSettBtn">
@@ -46,94 +47,32 @@
         <div class="col-sm-8 col-md-7 col-lg-8 col-xl-9 col-xxl-9" id="repoContainer">
           <!--Table title-->
           <i class="bi-folder-fill"></i><h4 id="tableTitle">My Repository</h4>
-          <table class="table" style="background-color: #171433; color: #E0EBED; border-radius: 10px;">
-            <thead>
-
-            </thead>
-            <tbody>
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>      
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>      
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>      
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>      
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>      
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>      
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>      
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>      
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>
-              <tr>
-                <td>Otto</td>
-              </tr>      
-              <tr>
-                <td>Otto</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action " aria-current="true">
+              The current link item
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+            <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+        </div>
         </div>
       </div>
     </div>
