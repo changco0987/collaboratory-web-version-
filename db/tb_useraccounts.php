@@ -27,7 +27,6 @@
         else if(!empty($userdata->getUserId()))
         {
             $dbData = pg_query($conn, "select * from tb_useraccounts where userid = '" .$userdata->getUserId(). "'");
-
         }
         else
         {

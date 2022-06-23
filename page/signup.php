@@ -30,6 +30,15 @@
     <title>Document</title>
 </head>
 <body>
+<!--Hidden alert message-->  
+    <div class="alert alert-danger alert-dismissible fade show" id="errorCode" role="alert">
+    <div id="errorMsg">
+        your userid is already taken!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    </div>
+
+
 
 <!--Page Title section-->
     <div class="row">
@@ -113,4 +122,39 @@
         </footer>
     </div>
 </body>
+    <!--alert message script-->
+    <script>
+        document.getElementById('errorCode').style.display = 'none';
+        document.getElementById('errorMsg').style.display = 'none';
+        var successSignal = localStorage.getItem('state');
+
+        if(successSignal==1)
+        {
+            //if userid is already taken
+            document.getElementById('errorCode').style.display = 'block';
+            document.getElementById('errorMsg').style.display = 'block';
+            console.log("okay");
+
+        }
+        else if(successSignal==2)
+        {
+            //if email is already taken
+            document.getElementById('errorCode').style.display = 'block';
+            document.getElementById('errorMsg').style.display = 'block';
+            document.getElementById('errorMsg').innerHTML = 'Sorry, this email address is already linked to an account';
+            console.log("okay");
+        }
+        else if(successSignal==3)
+        {
+            //if password doesn't matched
+            document.getElementById('errorCode').style.display = 'block';
+            document.getElementById('errorMsg').style.display = 'block';
+            document.getElementById('errorMsg').innerHTML = "Password doesn't match!";
+            console.log("okay");
+        }
+
+        //To make signl back to normmal and to prevent for the success page to appear every time the page was reload or refresh
+        localStorage.setItem('state',0);
+    </script>
+
 </html>

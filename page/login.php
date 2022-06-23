@@ -17,6 +17,7 @@
 </head>
 <body>
 
+
 <!--Page Title section-->
     <div class="row fixed-top">
 
@@ -59,7 +60,10 @@
                             <br>
                             <small>Don't have any account? <a class="text-dark" href="../page/signup.php">Just Click here</a></small>
                         </div>
-        
+                        <br>
+                        <div id="errorCode" style="background-color: #FF6D6A; padding: 15px 5px 1px 5px; border-radius: 4px;">
+                            <p class="text-center" id="errorMsg" style="font-size: 12px;">This userid doens't exist!</p>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -76,6 +80,41 @@
             <!-- Copyright -->
         </footer>
     </div>
-
 </body>
+
+    <!--alert message script-->
+    <script>
+        document.getElementById('errorCode').style.display = 'none';
+        document.getElementById('errorMsg').style.display = 'none';
+        var successSignal = localStorage.getItem('state');
+
+        if(successSignal==1)
+        {
+            //if userid or password was incorrect
+            document.getElementById('errorCode').style.display = 'block';
+            document.getElementById('errorMsg').style.display = 'block';
+            console.log("okay");
+
+        }
+        else if(successSignal==2)
+        {
+            //if userid or password was
+            document.getElementById('errorCode').style.display = 'block';
+            document.getElementById('errorMsg').style.display = 'block';
+            document.getElementById('errorMsg').innerHTML = 'Please check your password carefully';
+            console.log("okay");
+        }
+        else if(successSignal==3)
+        {
+            //if password doesn't matched
+            document.getElementById('errorCode').style.display = 'block';
+            document.getElementById('errorMsg').style.display = 'block';
+            document.getElementById('errorMsg').innerHTML = "Password doesn't match!";
+            console.log("okay");
+        }
+
+        //To make signl back to normmal and to prevent for the success page to appear every time the page was reload or refresh
+        localStorage.setItem('state',0);
+    </script>
+
 </html>

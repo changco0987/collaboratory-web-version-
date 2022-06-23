@@ -15,19 +15,27 @@
     {
         $dbData = pg_fetch_assoc(ReadUser($conn,$userdata));
 
-        if($dbData['userid']==$_POST['useridTb'] &&
-           $dbData['password']==$userdata->getPassword())
+        //This will check if the inputted password is equal to inputted userid
+        if($dbData['password']==$userdata->getPassword())
         {
             session_start();
             $_SESSION['id'] = $dbData['account_id'];
+            $_SESSION['userid'] = $dbData['userid'];
+            $_SESSION['username'] = $dbData['firstname']. " " .$dbData['lastname'];
             header('Location: ../page/userDashboard.php');
             
+        }
+        else 
+        {
+            //This will throw a incorrect password message
+            echo '<script> localStorage.setItem("state",2); window.location = "../page/login.php";</script>';
         }
 
     }
     else
     {
-        //return to login page and return an error message
+        //This will throw a incorrect userid message
+        echo '<script> localStorage.setItem("state",1); window.location = "../page/login.php";</script>';
     }
 
 

@@ -30,7 +30,7 @@
     <title>Collaboratory - reset password</title>
 </head>
 <body>
-    
+<!--Hidden alert message-->  
 <div class="alert alert-danger alert-dismissible fade show" id="errorCode" role="alert">
   <div id="errorMsg">
     Password doesn't match!
