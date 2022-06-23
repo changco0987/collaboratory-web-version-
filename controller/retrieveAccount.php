@@ -22,6 +22,7 @@
             $_SESSION['id'] = $dbData['account_id'];
             $_SESSION['userid'] = $dbData['userid'];
             $_SESSION['username'] = $dbData['firstname']. " " .$dbData['lastname'];
+            $_SESSION['profilepicname'] = $dbData['profilepicname'];
             header('Location: ../page/userDashboard.php');
             
         }

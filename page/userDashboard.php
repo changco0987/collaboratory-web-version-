@@ -18,28 +18,40 @@
 
 
         <!--My Javascript-->
-        <script src="../script/" type="text/javascript"></script>
+        <script src="../script/userDashboard.js" type="text/javascript"></script>
         <link rel="icon" href="../Asset/AppIcon.ico">
         <title>Collaboratory</title>
 </head>
 <body>
-
+<?php
+  session_start();
+?>
     <div class="container-fluid mt-3 flex-fill" id="sectionContainer">
 
       <div class="row ps-3 pe-3 ms-2 me-2">
         <div class="text-center col-sm-4 col-md-5 col-lg-4 col-xl-3 col-xxl-3" id="profileContainer" >
-            <img class="img-fluid h-25 w-50" id="profilepic" alt="50x50" src="../Asset/onah.jpg"
+          <div id="spacer"></div>  
+          <img class="img-fluid h-25 w-50" id="profilepic" alt="50x50" src="http://127.0.0.1/server/Image/download.png"
             data-holder-rendered="true" style="border-radius: 50%;">
+            <script>
+              //this will check if the user has profile picture
+              var image ='<?php echo $_SESSION["profilepicname"]?>';
 
-            <h3 class="text-center" id="username">user name</h3>
-            <p class="text-center" id="userid">user id</p>
+              if(image!='')
+              {
+                document.getElementById('profilepic').src ="http://127.0.0.1/server/Image/"+image;
+              }
+
+            </script>
+            <h3 class="text-center" id="username"><?php echo $_SESSION['username'];?></h3>
+            <p class="text-center" id="userid"><?php echo $_SESSION['userid'];?></p>
             <!--Buttons-->
             <div class="btnContainer">
               <button type="button" class="btn btn-primary" id="createRepoBtn">
                 <span class="btn-label"><i class="bi-folder"></i></span>Create Repository</button>
               <button type="button" class="btn btn-primary" id="accSettBtn">
                 <span class="btn-label"><i class="bi-gear"></i></span>Account Settings</button>
-              <button type="button" class="btn btn-primary" id="signoutBtn">
+              <button type="button" class="btn btn-primary" id="signoutBtn" onclick="logout()">
                 <span class="btn-label"><i class="bi-back"></i></span>Sign-out</button>
             </div>
         </div>
