@@ -24,7 +24,10 @@
 </head>
 <body>
 <?php
-  session_start();
+    include_once '../db/connection.php';
+    require_once '../Model/Repodata.php';
+    require_once '../db/tb_repositories.php';
+    session_start();
 ?>
     <div class="container-fluid mt-3 flex-fill" id="sectionContainer">
 
@@ -61,30 +64,19 @@
           <!--Table title-->
           <i class="bi-folder-fill"></i><h4 id="tableTitle">My Repository</h4>
           <div class="list-group">
-              <a href="#" class="list-group-item list-group-item-action " aria-current="true">
-                The current link item
-              </a>
-              <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A second link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A third link item</a>
-              <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+              <?php 
+                    //$dbData = pg_fetch_assoc(ReadRepo($conn,$_SESSION['id'],"user"));
+                    $row = pg_num_rows(ReadRepo($conn,$_SESSION['id'],"user"));
+
+                    for($count = 0; $count < $row; $count++)
+                    {
+                      $dbData = pg_fetch_assoc(ReadRepo($conn,$_SESSION['id'],"user"),$count);
+                      ?>
+                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
+                      <?php
+                    }
+              ?>
+              
           </div>
         </div>
       </div>

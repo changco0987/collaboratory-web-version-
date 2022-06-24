@@ -75,6 +75,7 @@ body{
 	padding: 6px 12px;
     margin-top: 2%;
     margin-left: 1%;
+    font-size: 30px;
 }
 
 .bi-folder-fill{
@@ -89,6 +90,7 @@ body{
     overflow-y:scroll;
     -webkit-overflow-scrolling: touch;
     border-radius: 5px;
+    font-size: 22px;
 
 }
 

@@ -26,7 +26,7 @@
         }
 
         return $dbData;
-
+        exit();
     }
 
     function UpdateRepo($conn,$repodata = new Repodata)
