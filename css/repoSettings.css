@@ -1,0 +1,80 @@
+body{
+    background-color: #171433;
+    color: #E0EBED;
+}
+
+#headerContainer{
+    background-color: #245382 !important;
+}
+
+#pageIcon{
+    position: relative;
+    left: 9px;
+    float: left;
+    height: 87px;
+}
+
+#pageTitle{ 
+    position: relative;
+    top: 5px;
+    left: -13px;
+    font-family: "Bahnschrift", Times, serif;
+    font-size: 50px; 
+
+}
+
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 850px;
+    background-color: #245382;
+    border-radius: 10px;
+    padding: 3%;
+    font-family:"Bahnschrift", Times, serif;
+    box-shadow: -1px 1px 20px 6px black;
+}
+
+.listContainer{
+    position: relative;
+    background-color: #171433;
+    height: 300px;
+    border-radius: 10px;
+}
+
+#userDp{
+    height: 70px;
+    width: 70px;
+    border-radius: 50px;
+}
+
+#userDetail{
+    word-spacing: 200px;
+    
+}
+
+#usernameLb{
+    position: relative;
+    top: 15px;
+	display: inline-block;
+    font-size: 25px;
+}
+
+#addBtn{
+    position: relative;
+    top: 17px;
+    left: 15%;
+	display: inline-block;
+    font-size: 25px;
+}
+
+#createtBtn{
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: -35px;
+    width: 200px;
+}
+
+
+

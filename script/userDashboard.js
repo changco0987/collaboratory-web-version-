@@ -11,3 +11,8 @@ function logout()
 
     window.location = "../page/login.php";
 }
+
+function repoSett()
+{
+    window.location = "../page/repoSettings.php";
+}

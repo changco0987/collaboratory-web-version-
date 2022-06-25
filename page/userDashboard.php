@@ -50,9 +50,9 @@
             <p class="text-center" id="userid"><?php echo $_SESSION['userid'];?></p>
             <!--Buttons-->
             <div class="btnContainer">
-              <button type="button" class="btn btn-primary" id="createRepoBtn">
+              <button type="button" class="btn btn-primary" id="createRepoBtn" onclick="repoSett()">
                 <span class="btn-label"><i class="bi-folder"></i></span>Create Repository</button>
-              <button type="button" class="btn btn-primary" id="accSettBtn">
+              <button type="button" class="btn btn-primary" id="accSettBtn" onclick="repoSett()">
                 <span class="btn-label"><i class="bi-gear"></i></span>Account Settings</button>
               <button type="button" class="btn btn-primary" id="signoutBtn" onclick="logout()">
                 <span class="btn-label"><i class="bi-back"></i></span>Sign-out</button>
