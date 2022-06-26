@@ -12,14 +12,32 @@
     <!--Bootstrap icon--> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
    
-   
+    <!--My Javascript-->
+    <script type="text/javascript" src=""></script>
     <!--My CSS-->
     <link rel="stylesheet" href="../css/repoSettings.css">
 
     <link rel="icon" href="../Asset/AppIcon.ico">
     <title>Repository Settings</title>
 </head>
+<script>
+        var searchValue = function(inputValue)
+                        {
+                            var storeVal = inputValue.value;
+                            document.cookie = "searchVal = " + storeVal;
+                            window.location = '../page/repoSettings.php';
+                            return;
+                        }
+    
+</script>
 <body>
+<?php
+    include_once '../db/connection.php';
+    require_once '../Model/Userdata.php';
+    require_once '../db/tb_useraccounts.php';
+
+?>
+
 
 
 <!--Page Title section-->
@@ -30,10 +48,8 @@
                 <img src="../Asset/AppIcon.png" class="img-fluid" id="pageIcon" alt="page icon">
                 <br>
                 <h1 id="pageTitle">ollaboratory</h1>
-            </header>
-               
+            </header> 
         </div>
-
     </div>
 
 <!--Content section-->
@@ -46,31 +62,69 @@
                 <input type="text" class="form-control" id="reponameTb" name="reponameTb" placeholder="" maxlength="20" required style="height:25px ;">
             </div>
             <div class="col-xs-4 col-sm-4 col-xs-4 col-md-4 input-group-addon">
-                <input type="text" class="form-control" id="searchTb" name="searchTb" placeholder="Search" maxlength="20" required style="height:25px;">
+                <input type="text" class="form-control" id="searchTb" name="searchTb" oninput="searchValue(this)" placeholder="Search" maxlength="20" required style="height:25px;">
             </div>
         </div>
+        
 <!--List of username section-->
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-xs-12 col-md-12">
                 <div class="listContainer">
-                    <div class="list-group">   
-                        <a id="" href="#" class="list-group-item list-group-item-action"> 
-                            <div class="row">
-                                <div class="col-xs-2 col-sm-2 col-xs-2 col-md-2">
-                                    <img src="../Asset/Mandap.png" alt="" id="userDp">
-                                </div>
-                                <div class="col-xs-9 col-sm-9 col-xs-9 col-md-9">
-                                    <p id="usernameLb">mandap</p> 
-                                </div>
-                                <div class="col-xs-1 col-sm-1 col-xs-1 col-md-1">
-                                    <img src="../Asset/add.png" alt="" id="addBtn">
-                                </div>                   
-                            </div>
-                        </a>
-                    </div> 
-                </div>
+                    <div class="list-group" style=" max-height: 300px;
+                                                    margin-bottom: 10px;
+                                                    overflow-y:scroll;
+                                                    -webkit-overflow-scrolling: touch;
+                                                    border-radius: 5px;
+                                                    font-size: 22px;">   
+
+                    <?php
+                        $userdata = new Userdata();
+
+                        $userlist = array();
+                        $rowCount = pg_num_rows(ReadUser($conn,$userdata));
+                        for($count = 0; $count < $rowCount; $count++)
+                        {
+                            $dbData = pg_fetch_assoc(ReadUser($conn,$userdata),$count);
+                            if(str_contains($dbData['firstname'],$_COOKIE['searchVal']))
+                            {
+                            ?>
+                           
+                                <a id="<?php echo $dbData['account_id'];?>" href="#" class="list-group-item list-group-item-action" style="background-color: #171433; color: #E0EBED;">
+                                    <div class="row">
+                                        <div class="col-xs-2 col-sm-2 col-xs-2 col-md-2">
+                                            <?php
+                                            if(!empty($dbData['profilepicname']))
+                                            {
+                                                ?>
+                                                    <img src="http://127.0.0.1/server/Image/<?php echo $dbData['profilepicname'];?>" alt="" id="userDp">
+                                                <?php
+                                            }
+                                            else
+                                            {
+                                                ?>
+                                                    <img src="../Asset/user.png" alt="" id="userDp">
+                                                <?php
+                                            }
+                                            ?>
+                                            
+                                        </div>
+                                        <div class="col-xs-9 col-sm-9 col-xs-9 col-md-9">
+                                            <p id="usernameLb"><?php echo $dbData['firstname']." ".$dbData['lastname'];?></p> 
+                                        </div>
+                                        <div class="col-xs-1 col-sm-1 col-xs-1 col-md-1">
+                                            <img src="../Asset/add.png" alt="" id="addBtn">
+                                        </div>
+                                    </div>
+                                </a>
+                            <?php
+                            }
+                        }
+                    ?>
+                    </div>
+                </div> 
             </div>
         </div>
+    </div>
         <div class="row text-center">
             <div class="col-xs-4 col-sm-4 col-xs-4 col-md-4"></div>
             <div class="col-xs-4 col-sm-4 col-xs-4 col-md-4">
@@ -92,40 +146,5 @@
         </footer>
     </div>
 </body>
-
-    <!--alert message script-->
-    <script>
-        document.getElementById('errorCode').style.display = 'none';
-        document.getElementById('errorMsg').style.display = 'none';
-        var successSignal = localStorage.getItem('state');
-
-        if(successSignal==1)
-        {
-            //if userid or password was incorrect
-            document.getElementById('errorCode').style.display = 'block';
-            document.getElementById('errorMsg').style.display = 'block';
-            console.log("okay");
-
-        }
-        else if(successSignal==2)
-        {
-            //if userid or password was
-            document.getElementById('errorCode').style.display = 'block';
-            document.getElementById('errorMsg').style.display = 'block';
-            document.getElementById('errorMsg').innerHTML = 'Please check your password carefully';
-            console.log("okay");
-        }
-        else if(successSignal==3)
-        {
-            //if password doesn't matched
-            document.getElementById('errorCode').style.display = 'block';
-            document.getElementById('errorMsg').style.display = 'block';
-            document.getElementById('errorMsg').innerHTML = "Password doesn't match!";
-            console.log("okay");
-        }
-
-        //To make signl back to normmal and to prevent for the success page to appear every time the page was reload or refresh
-        localStorage.setItem('state',0);
-    </script>
 
 </html>
