@@ -21,11 +21,39 @@
     <title>Repository Settings</title>
 </head>
 <script>
+        var storeId = [];
+        //This will check if the localstorage is empty
+        if(localStorage.getItem(""))
+        {
+            //Then restore the localstorage value to array
+            storeId = JSON.parse(localStorage.getItem("memberList"));
+        }
+
         var searchValue = function(inputValue)
                         {
                             var storeVal = inputValue.value;
                             document.cookie = "searchVal = " + storeVal;
-                            window.location = '../page/repoSettings.php';
+                            //window.location = '../page/repoSettings.php';
+                            return;
+                        }
+
+        var addMember = function(userId)
+                        {
+                            if(!storeId.includes(userId))
+                            {
+                                storeId.push(userId);
+ 
+                            }
+                            else 
+                            {
+                                const index = storeId.indexOf(userId);//This will get the exact index of the element that need to remove
+                                if(index > -1)
+                                {
+                                    storeId.splice(index,1);
+                                }
+                            }
+                            console.log(storeId);
+                            localStorage.setItem("memberList", storeId);
                             return;
                         }
     
@@ -58,8 +86,12 @@
             <div class="col-xs-3 col-sm-3 col-xs-3 col-md-3">
                 <p style="font-size: 18px;">Repository Name:</p>
             </div>
-            <div class="col-xs-5 col-sm-5 col-xs-5 col-md-5">
+            <div class="col-xs-4 col-sm-4 col-xs-4 col-md-4">
                 <input type="text" class="form-control" id="reponameTb" name="reponameTb" placeholder="" maxlength="20" required style="height:25px ;">
+            </div>
+            <div class="col-xs-1 col-sm-1 col-xs-1 col-md-1">
+                <button type="button" class="btn btn-labeled btn-light" id="searchBtn" style="height: 25px; width: 25px;">
+                <span class="btn-label" style="height: 20px; width: 20px;"><i class="bi-search"></i></span></button>
             </div>
             <div class="col-xs-4 col-sm-4 col-xs-4 col-md-4 input-group-addon">
                 <input type="text" class="form-control" id="searchTb" name="searchTb" oninput="searchValue(this)" placeholder="Search" maxlength="20" required style="height:25px;">
@@ -80,43 +112,45 @@
                     <?php
                         $userdata = new Userdata();
 
-                        $userlist = array();
-                        $rowCount = pg_num_rows(ReadUser($conn,$userdata));
-                        for($count = 0; $count < $rowCount; $count++)
+                        if(!empty($_COOKIE['searchVal']))
                         {
-                            $dbData = pg_fetch_assoc(ReadUser($conn,$userdata),$count);
-                            if(str_contains($dbData['firstname'],$_COOKIE['searchVal']))
+                            $rowCount = pg_num_rows(ReadUser($conn,$userdata));
+                            for($count = 0; $count < $rowCount; $count++)
                             {
-                            ?>
-                           
-                                <a id="<?php echo $dbData['account_id'];?>" href="#" class="list-group-item list-group-item-action" style="background-color: #171433; color: #E0EBED;">
-                                    <div class="row">
-                                        <div class="col-xs-2 col-sm-2 col-xs-2 col-md-2">
-                                            <?php
-                                            if(!empty($dbData['profilepicname']))
-                                            {
-                                                ?>
-                                                    <img src="http://127.0.0.1/server/Image/<?php echo $dbData['profilepicname'];?>" alt="" id="userDp">
+                                $dbData = pg_fetch_assoc(ReadUser($conn,$userdata),$count);
+                                if(str_contains($dbData['firstname'],$_COOKIE['searchVal']))
+                                {
+                                ?>
+                            
+                                    <a id="<?php echo $dbData['account_id'];?>" href="#" class="list-group-item list-group-item-action" onclick="addMember(this.id)" style="background-color: #171433; color: #E0EBED;">
+                                        <div class="row">
+                                            <div class="col-xs-2 col-sm-2 col-xs-2 col-md-2">
                                                 <?php
-                                            }
-                                            else
-                                            {
+                                                if(!empty($dbData['profilepicname']))
+                                                {
+                                                    ?>
+                                                        <img src="http://127.0.0.1/server/Image/<?php echo $dbData['profilepicname'];?>" alt="" id="userDp">
+                                                    <?php
+                                                }
+                                                else
+                                                {
+                                                    ?>
+                                                        <img src="../Asset/user.png" alt="" id="userDp">
+                                                    <?php
+                                                }
                                                 ?>
-                                                    <img src="../Asset/user.png" alt="" id="userDp">
-                                                <?php
-                                            }
-                                            ?>
-                                            
+                                                
+                                            </div>
+                                            <div class="col-xs-9 col-sm-9 col-xs-9 col-md-9">
+                                                <p id="usernameLb"><?php echo $dbData['firstname']." ".$dbData['lastname'];?></p> 
+                                            </div>
+                                            <div class="col-xs-1 col-sm-1 col-xs-1 col-md-1">
+                                                <img src="../Asset/add.png" alt="" id="addBtn">
+                                            </div>
                                         </div>
-                                        <div class="col-xs-9 col-sm-9 col-xs-9 col-md-9">
-                                            <p id="usernameLb"><?php echo $dbData['firstname']." ".$dbData['lastname'];?></p> 
-                                        </div>
-                                        <div class="col-xs-1 col-sm-1 col-xs-1 col-md-1">
-                                            <img src="../Asset/add.png" alt="" id="addBtn">
-                                        </div>
-                                    </div>
-                                </a>
-                            <?php
+                                    </a>
+                                <?php
+                                }
                             }
                         }
                     ?>
@@ -124,7 +158,7 @@
                 </div> 
             </div>
         </div>
-    </div>
+
         <div class="row text-center">
             <div class="col-xs-4 col-sm-4 col-xs-4 col-md-4"></div>
             <div class="col-xs-4 col-sm-4 col-xs-4 col-md-4">

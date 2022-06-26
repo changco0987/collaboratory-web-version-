@@ -81,4 +81,27 @@ body{
 }
 
 
+.btn-label {
+	position: relative;
+	left: -20px;
+    top: -5px;
+	display: inline-block;
+	padding: 6px 12px;
+	border-radius: 3px 0 0 3px;
+}
 
+.btn-labeled {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+#searchBtn {
+    position: relative;
+    left: 43px;
+	margin-bottom: 10px;
+    border-radius: 6px 0px 0px 6px;
+
+}
+#searchTb{
+    border-radius: 0px 6px 6px 0px;
+}

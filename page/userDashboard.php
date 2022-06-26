@@ -73,59 +73,6 @@
                       $dbData = pg_fetch_assoc(ReadRepo($conn,$_SESSION['id'],"user"),$count);
                       ?>
                         <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
                         
                       <?php
                     }
