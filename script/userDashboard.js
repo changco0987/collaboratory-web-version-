@@ -1,15 +1,16 @@
 
+//This will clear the sessioStorage used from other pages and also the cookie used in search
+sessionStorage.clear();
+
+document.cookie = "searchVal = " + "";
+
 function logout()
 {
 
     
     //This will clear all $_session 
-    var destroySession = '<?php session_start();'+
-    '$helper = array_keys($_SESSION);'+
-    'foreach ($helper as $key){'+
-    'unset($_SESSION[$key]);}?>';
 
-    window.location = "../page/login.php";
+    window.location = "../controller/cleanUserdata.php";
 }
 
 function repoSett()

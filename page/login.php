@@ -16,6 +16,18 @@
     <title>Collaboratory - log in or sign up</title>
 </head>
 <body>
+<?php 
+    session_start();
+    //This will check if the user is still login
+    //This will make the user remain login as long as the user don't click the logout button
+        if(isset($_SESSION['id']) &&
+           isset($_SESSION['userid']) &&
+           isset($_SESSION['username']) &&
+           isset($_SESSION['profilepicname']))
+        {
+            header('Location: ../page/userDashboard.php');
+        }
+    ?>
 
 
 <!--Page Title section-->

@@ -65,7 +65,7 @@ body{
     font-size: 25px;
 }
 
-#addBtn{
+.addBtn{
     position: relative;
     top: 17px;
     left: 15%;
