@@ -8,7 +8,7 @@
     function CreateRepo($conn,$repodata = new Repodata)
     {
         pg_query($conn,"insert into tb_repositories(repositoryname,members,account_id)".
-        "values('".$repodata->getRepositoryName(). "',ARRAY[" .memberList($repodata->getMembers()).
+        "values('".$repodata->getRepositoryName(). "',ARRAY[" .$repodata->getMembers()[0].
         "],'".$repodata->getAccountId()."')");
     }
 
@@ -44,17 +44,17 @@
     {
         $allMembers = "";
         
-        if(count($members) == 0)
+        if(isset($members))
         {
-            return "";
+            $allMembers = json_encode($members);
+            echo $allMembers;
+            
         }
         else
         {
-            foreach($members as $member)
-            {
-                $allMembers += $member + ",";
-            }
+            return "";
         }
-        return str_replace(',','',$allMembers,strlen($allMembers)-1);
+        echo str_replace('"/', '', $allMembers);
+        return $allMembers;
     }
 ?>
