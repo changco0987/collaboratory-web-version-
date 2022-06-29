@@ -7,14 +7,24 @@
     session_start();
     $repodata = new Repodata();
 
-    $repodata->setRepositoryName($_POST['reponameTb']);
-    $repodata->setAccountId($_SESSION['id']);
-    if(isset($_POST['finalMembers']))
+    //if this iteration is true, then it means it just update the current repository, else, it will create a new repository
+    if(isset($_SESSION['repoid']))
     {
-        $repodata->setMembers($_POST['finalMembers']);
+        $repodata->setId($_POST['repoid']);
+        $repodata->setRepositoryName($_SESSION['reponame']);
+    }
+    else
+    {
+        $repodata->setRepositoryName($_POST['reponameTb']);
+        $repodata->setAccountId($_SESSION['id']);
+        if(isset($_POST['finalMembers']))
+        {
+            $repodata->setMembers($_POST['finalMembers']);
+        }
+    
+        CreateRepo($conn,$repodata);
     }
 
-    CreateRepo($conn,$repodata);
     header('Location: ../page/userDashboard.php');
     
 ?>

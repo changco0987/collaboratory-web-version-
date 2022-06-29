@@ -16,9 +16,9 @@
 
 
 
-
         <!--My Javascript-->
-        <script src="../script/userDashboard.js" type="text/javascript"></script>
+        <script type="text/javascript" src="../script/userDashboard.js"></script>
+  
         <link rel="icon" href="../Asset/AppIcon.ico">
         <title>Collaboratory</title>
 </head>
@@ -27,22 +27,28 @@
     include_once '../db/connection.php';
     require_once '../Model/Repodata.php';
     require_once '../db/tb_repositories.php';
+
     session_start();
+    
+    if(isset($_SESSION['reponame']))
+    {
+      unset($_SESSION['reponame']);
+      unset($_SESSION['members']);
+    }
 ?>
     <div class="container-fluid mt-3 flex-fill" id="sectionContainer">
 
       <div class="row ps-3 pe-3 ms-2 me-2">
         <div class="text-center col-sm-4 col-md-5 col-lg-4 col-xl-3 col-xxl-3" id="profileContainer" >
           <div id="spacer"></div>  
-          <img class="img-fluid h-25 w-50" id="profilepic" alt="50x50" src="http://127.0.0.1/server/Image/download.png"
-            data-holder-rendered="true" style="border-radius: 50%;">
+          <img class="img-fluid h-25 w-50" id="profilepic" alt="50x50" src="../Asset/user.png" style="border-radius: 50%;">
             <script>
               //this will check if the user has profile picture
               var image ='<?php echo $_SESSION["profilepicname"]?>';
-
+              console.log(image);
               if(image!='')
               {
-                document.getElementById('profilepic').src ="http://127.0.0.1/server/Image/"+image;
+                document.getElementById('profilepic').src ="http://localhost/server/Image/"+image;
               }
 
             </script>
@@ -72,7 +78,7 @@
                     {
                       $dbData = pg_fetch_assoc(ReadRepo($conn,$_SESSION['id'],"user"),$count);
                       ?>
-                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action"><?php echo $dbData['repositoryname'];?></a>
+                        <a id="<?php echo $dbData['repository_id'];?>" href="#" class="list-group-item list-group-item-action" onclick="repoClick(this.id,this.name)" name="<?php echo $dbData['repositoryname'];?>"><?php echo $dbData['repositoryname'];?></a>
                         
                       <?php
                     }
@@ -82,6 +88,14 @@
         </div>
       </div>
     </div>
-    
+    <script>
+      function repoClick(repoId,repoName)
+      {
+          sessionStorage.setItem('repositoryName',repoName);
+          sessionStorage.setItem('repositoryid',repoId);
+          window.location = "../page/repoDashboard.php";
+      }   
+    </script>
 </body>
+
 </html>

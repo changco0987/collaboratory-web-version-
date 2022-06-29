@@ -55,7 +55,17 @@
                     <p style="font-size: 18px;">Repository Name:</p>
                 </div>
                 <div class="col-xs-4 col-sm-4 col-xs-4 col-md-4">
-                    <input type="text" class="form-control" id="reponameTb" name="reponameTb" placeholder="" maxlength="20" required style="height:25px ;">
+                    <?php
+                        if(isset($_SESSION['reponame']))
+                        {
+                            echo '<input type="text" class="form-control" id="reponameTb" name="reponameTb" placeholder="" maxlength="20" required style="height:25px ;" value="'.$_SESSION["reponame"].'">';
+                        }
+                        else
+                        {
+                            echo '<input type="text" class="form-control" id="reponameTb" name="reponameTb" placeholder="" maxlength="20" required style="height:25px ;">';
+                        }
+                    ?>
+                    
                 </div>
                 <div class="col-xs-1 col-sm-1 col-xs-1 col-md-1">
                     <button type="button" class="btn btn-labeled btn-light" id="searchBtn" style="height: 25px; width: 25px;" onclick="buttonCode()">
@@ -103,7 +113,7 @@
                                                         if(!empty($dbData['profilepicname']))
                                                         {
                                                             ?>
-                                                                <img src="http://127.0.0.1/server/Image/<?php echo $dbData['profilepicname'];?>" alt="" id="userDp">
+                                                                <img src="http://localhost/server/Image/<?php echo $dbData['profilepicname'];?>" alt="" id="userDp">
                                                             <?php
                                                         }
                                                         else
@@ -159,4 +169,12 @@
 
     <!--My Javascript-->
     <script type="text/javascript" src="../script/repoSett.js"></script>
+    <?php
+        if(isset($_SESSION['members']))
+        {
+            ?>
+            <script>sessionStorage.setItem('memberList',JSON.stringify(<?php echo $_SESSION['members'];?>));</script>
+            <?php
+        }
+    ?>
 </html>

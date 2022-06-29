@@ -13,7 +13,9 @@ function logout()
     window.location = "../controller/cleanUserdata.php";
 }
 
-function repoSett()
-{
+function repoSett(repoId)
+{   
     window.location = "../page/repoSettings.php";
 }
+
+

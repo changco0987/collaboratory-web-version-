@@ -9,10 +9,27 @@ var storeId = [];
 }
 */
 
+
+if(storeId !== null)
+{
+    for(const btnId of storeId)
+    {
+        //it will check first if this id is exist
+        var checkId = document.getElementById(btnId[0]);
+
+        if(checkId!=null)
+        {
+            //This will change the previously selected btn member
+            document.getElementById(btnId[0]).src = '../Asset/checkIcon.png';
+        }
+    }
+}
+
 if(sessionStorage.getItem("memberList") !== null)
 {
 
     storeId = JSON.parse(sessionStorage.getItem("memberList"));
+
 
     for(const btnId of storeId)
     {
@@ -39,7 +56,6 @@ var addMember = function(userId)
                 {
           
                     //this will prepair the add and already added button/indicator
-                    //var index = userId.indexOf('+');
                     var btnId = userId.slice(0,userId.indexOf('+'));
                     //this will check first if the memberlist has no value
                     if(storeId === undefined || storeId.length == 0)

@@ -50,8 +50,8 @@
         #this will send an email to the user
         ?>
             <script>
-                //resetCodeMsg(<?php echo "'" .$userdata->getUak(). "'";?> ,<?php echo "'" .$userdata->getEmail(). "'";?>);
-                setTimeout(gotoResetPass,1000);//To make sure that the accountCreateMsg() function will execute before going to the next page
+                resetCodeMsg(<?php echo "'" .$userdata->getUak(). "'";?> ,<?php echo "'" .$userdata->getEmail(). "'";?>);
+                setTimeout(gotoResetPass,2000);//To make sure that the accountCreateMsg() function will execute before going to the next page
             </script>
         <?php   
     }

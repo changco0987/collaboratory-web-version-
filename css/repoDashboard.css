@@ -1,0 +1,245 @@
+body{
+    background-color: #171433;
+    color: #E0EBED;
+    font-family:"Bahnschrift", Times, serif;
+}
+
+#headerContainer{
+    background-color: #245382 !important;
+}
+
+#pageIcon{
+    position: relative;
+    margin-top: 13px;
+    left: 12px;
+    float: left;
+    height: 50px;
+}
+
+#pageTitle{ 
+    position: relative;
+    margin-top: 1px;
+    left: 1px;
+    font-family: "Bahnschrift", Times, serif;
+    font-size: 35px; 
+
+}
+#containerTop{
+    background-color: #245382;
+    height: 250px;
+    min-width: 1000px;
+    max-height: 300px;
+    border-radius: 5px;
+}
+
+#containerMid{
+    background-color:#2c2757;
+    max-height: 100px;
+    min-width: 1000px;
+    border-radius: 5px;
+}
+
+#containerBottom{
+    background-color:#2c2757;   
+    min-width: 1000px;
+    height: 520px;
+    max-height: 700px;
+    border-radius: 5px;
+}
+
+#profilepic{
+    height: 50px;
+    width: 5px;
+}
+
+#backBtn{
+    margin: 10px; 
+    position:relative; 
+    float:right;
+}
+
+#userSettBtn{
+    margin: 10px;
+    margin-right: 1px;
+    position: relative;
+    float:right;
+}
+
+#chatBtn{
+    margin: 10px;
+    margin-top: 5px;
+    margin-left: -10px;
+    width: 175px;
+    position:relative; 
+    float:right;
+    bottom: -200px;
+    font-size: 20px;
+}
+
+#editrepoBtn{
+    margin: 10px;
+    margin-top: 5px;
+    margin-right: -105px;
+    width: 175px;
+    position:relative; 
+    float:right;
+    bottom: -200px;
+    font-size: 20px;
+}
+
+
+#username{
+    margin-top: 10%;
+    margin-left: 15px;
+}
+
+#userid{
+    margin-left: 15px;
+    margin-top: -1%;
+    font-size: 20px;
+}
+
+#contributionBtn{
+    margin: 5px;
+    margin-top: 25px;
+    width: 175px;
+    position:relative; 
+    float:right;
+}
+#threadBtn{
+    margin: 5px;
+    margin-top: 25px;
+    width: 175px;
+    position:relative; 
+    float:right;
+}
+#uploadBtn{
+    margin: 5px;
+    margin-top: 25px;
+    position:relative; 
+    float:right;
+}
+
+.list-group{
+    max-height: 800px;
+    margin-bottom: 10px;
+    overflow-y:scroll;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 5px;
+    font-size: 22px;
+
+}
+
+.list-group-item{
+    background-color:#2e68a1;
+    color: #E0EBED;
+
+}
+
+#editBtn{
+    margin: 10px;
+    position:relative; 
+    float:right;
+}
+
+#noteBtn{
+    margin: 10px;
+    position:relative; 
+    float:right;
+}
+
+#downloadBtn{
+    margin: 10px;
+    position:relative; 
+    float:right;
+}
+
+.btnContainer{
+    background-color: red;
+}
+
+
+
+* {box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #293b5f;
+  border-radius: 9px;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  width: 500px;
+  bottom: 0;
+  right: 15px;
+  border: none;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 800px;
+  padding: 10px;
+  background-color: rgb(136, 27, 27);
+  color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 5px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+
+
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+.form-control{
+    height: 30px;
+}
+
+
+#fileTb{
+    margin-top: -10px;
+    height: 35px;
+}
+
+#noteTb{
+    height: 100px;
+}
