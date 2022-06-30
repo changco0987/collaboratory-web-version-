@@ -43,7 +43,7 @@ body{
     background-color:#2c2757;   
     min-width: 1000px;
     height: 520px;
-    max-height: 700px;
+    max-height: 520px;
     border-radius: 5px;
 }
 
@@ -121,7 +121,7 @@ body{
 }
 
 .list-group{
-    max-height: 800px;
+    max-height: 520px;
     margin-bottom: 10px;
     overflow-y:scroll;
     -webkit-overflow-scrolling: touch;

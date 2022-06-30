@@ -18,10 +18,23 @@
 </head>
 <body>
 <?php
+    include_once '../db/connection.php';#connection to database
+    require_once '../Model/Updatedata.php';#update Model
+    require_once '../db/tb_updates.php';
+
+    require_once '../Model/Userdata.php';
+    require_once '../db/tb_useraccounts.php';
+
+    require_once '../db/tb_repositories.php';
     session_start();
+    $_SESSION['repositoryid'] = $_COOKIE['repositoryid'];
+
+    //this will identify the repository creator
+
+    $repoinfo = pg_fetch_assoc(ReadRepo($conn,$_SESSION['repositoryid'],"repo"));
 ?>
     <div class="form-popup" id="myForm" style="border-radius:20px;">
-        <form action="controller.php" method="post" enctype="multipart/form-data" class="form-container" style="background-color: #3070b1; border-radius:12px; color:white;">
+        <form action="../controller/uploadPost.php" method="post" enctype="multipart/form-data" class="form-container" style="background-color: #3070b1; border-radius:12px; color:white;">
             <h1></h1>
             
             <button type="button" class="btn-close" onclick="closeForm()" style="position:relative; float:right;"></button>
@@ -33,9 +46,7 @@
             <input class="form-control" type="File" name="fileTb" id="fileTb"><br>
 
             <label id="Note">Note: </label>
-            <textarea class="form-control" type="text" name="noteTb" id="noteTb" maxlength="280" style="color: black;" required></textarea><br>
-
-
+            <textarea class="form-control" type="text" name="noteTb" id="noteTb" maxlength="280" style="color: black;"></textarea><br>
 
             <input type="submit" class="btn" name="submitBtn" value="Upload" id="submitBtn">
         </form>
@@ -63,22 +74,26 @@
                                                                                                               margin: 35px;">
 
                             <script>
-                                    function openForm() 
-                                    {
-                                        document.getElementById("myForm").style.display = "block";
-                                    }
 
-                                    function closeForm() 
-                                    {
-                                        document.getElementById("myForm").style.display = "none";
-                                    }
-                            //this will check if the user has profile picture
-                            var image ='<?php echo $_SESSION["profilepicname"]?>';
-                            console.log(image);
-                            if(image!='')
-                            {
-                                document.getElementById('profilepic').src ="http://localhost/server/Image/"+image;
-                            }
+
+                                function openForm() 
+                                {
+                                    document.getElementById("myForm").style.display = "block";
+                                }
+
+                                function closeForm() 
+                                {
+                                    document.getElementById("myForm").style.display = "none";
+                                }
+
+
+                                //this will check if the user has profile picture
+                                var image ='<?php echo $_SESSION["profilepicname"]?>';
+                                console.log(image);
+                                if(image!='')
+                                {
+                                    document.getElementById('profilepic').src ="http://localhost/server/Image/"+image;
+                                }
 
                             </script>
                         </div>
@@ -91,12 +106,24 @@
                             <button class="btn btn-primary" id="userSettBtn" ><i class="bi-gear"></i></button>
                             <form action="../controller/getRepoInfo.php" method="POST">
                                 <input type="hidden" id="currentRepoId" name="currentRepoId" style="display:none">
-                                <button type="submit" class="btn btn-primary" id="editrepoBtn">Edit Repository</button>
+
+                                <?php
+                                    if($repoinfo['account_id']==$_SESSION['id'])
+                                    {
+                                        ?>
+                                            <button type="submit" class="btn btn-primary" id="editrepoBtn">Edit Repository</button>
+                                        <?php
+                                    }
+                                    else
+                                    {
+                                        ?>
+                                            <button type="submit" class="btn btn-primary" id="editrepoBtn" disabled style="background-color: gray;">Edit Repository</button>
+                                        <?php
+                                    }
+                                ?>
+                                
                             </form>
-                            <script>
-                                var repoid = sessionStorage.getItem('repositoryid');
-                                document.getElementById("currentRepoId").value = repoid;
-                            </script>
+
                             <button class="btn btn-primary" id="chatBtn" >chat</button>
                         </div>
                     </div>
@@ -128,39 +155,103 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                 <div id="containerBottom">
-                    <div class="list-group">
-                    <a id="" href="#" class="list-group-item list-group-item-action" onclick="">
-                        <div class="row">
-                            <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
-                                <h4 id="postName" style="margin: 20px;">post name</h4>
-                            </div>
-                            <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
-                                <h5 id="creatorName" style="margin: 20px;">creator name</h5>
-                            </div>
-                            <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
-                                <h5 id="postDate" style="margin: 20px;">post date</h5>
-                            </div>
+                    <div class="list-group" style=" max-height: 520px;
+                                                    margin-bottom: 10px;
+                                                    overflow-y:scroll;
+                                                    -webkit-overflow-scrolling: touch;
+                                                    border-radius: 5px;
+                                                    font-size: 22px;">
+                        <?php
+                            if(isset($_COOKIE['repositoryid']))
+                            {
+                                $updatedata = new Updatedata();
 
-                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
-                               <div class="btnContainer">
-                                    <button class="btn btn-primary" id="editBtn" ><i class="bi-download"></i></button>
-                                    <button class="btn btn-primary" id="noteBtn" ><i class="bi-journal-text"></i></button>
-                                    <button class="btn btn-primary" id="downloadBtn" ><i class="bi-pencil-square"></i></button>
-                               </div>
-                                
-                            </div>
+                                $updatedata->setRepositoryId($_COOKIE['repositoryid']);
 
-                        </div>
-                    </a>
+                                $row = pg_num_rows(ReadPost($conn,$updatedata));
+
+                                for($count = 0; $count < $row; $count++)
+                                {
+                                    $dbData = pg_fetch_assoc(ReadPost($conn,$updatedata),$count);
+                                    ?>
+                                        <a id="" href="#" class="list-group-item list-group-item-action" onclick="">
+                                            <div class="row">
+                                                <div class="col-sm-5 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
+                                                    <h4 id="postName" style="margin: 20px; font-size: 19px;"><?php echo $dbData['title'];?></h4>
+                                                </div>
+                                                <?php
+                                                    $userdata = new Userdata();
+                                                    $userdata->setId($dbData['account_id']);
+                                                    $userinfo = pg_fetch_assoc(ReadUser($conn,$userdata));
+                                                ?>
+                                                <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
+                                                    <h5 id="creatorName" style="margin: 20px; font-size: 15px;"><?php echo $userinfo['firstname']." ".$userinfo['lastname'];?></h5>
+                                                </div>
+                                                <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2 col-xxl-2">
+                                                    <h5 id="postDate" style="margin: 20px; font-size: 14px"><?php echo date("d/m/Y g:i:s A", strtotime($dbData['post_datetime']));?></h5>
+                                                </div>
+
+                                                <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-3">
+                                                <div class="btnContainer">
+                                                    <?php
+                                                        if($dbData['filename']!="")
+                                                        {
+                                                            ?>
+                                                                <button class="btn btn-primary" id="downloadBtn"><i class="bi-download"></i></button>
+                                                            <?php
+                                                        }
+                                                        else
+                                                        {
+                                                            ?>
+                                                                <button class="btn btn-primary" id="downloadBtn" disabled style="background-color: #FF6961;"><i class="bi-download"></i></button>
+                                                            <?php
+                                                        }
+                                                    ?>
+                                                    
+                                                    <button class="btn btn-primary" id="noteBtn" ><i class="bi-journal-text"></i></button>
+                                                    <?php
+                                                        if($dbData['account_id']==$_SESSION['id'])
+                                                        {
+                                                            ?>
+                                                                <button class="btn btn-primary" id="editBtn" ><i class="bi-pencil-square"></i></button>
+                                                            <?php
+                                                        }
+                                                        else
+                                                        {
+                                                            ?>
+                                                                <button class="btn btn-primary" id="editBtn" disabled style="background-color: #FF6961;"><i class="bi-pencil-square"></i></button>
+                                                            <?php
+                                                        }
+                                                    ?>
+                                                    
+                                                </div>
+                                                    
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    <?php
+                                }
+                            }
+                        ?>
+
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+    <script>
+        var repoid = sessionStorage.getItem('repositoryid');
+        document.getElementById("currentRepoId").value = repoid;
+        
+        document.getElementById('threadBtn').style.backgroundColor = "green";
+    </script>
 
     <!--My Javascript-->
     <script type="text/javascript" src="../script/repoDashboard.js"></script>

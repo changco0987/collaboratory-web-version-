@@ -1,5 +1,5 @@
 <?php
-    include_once 'connection.php';#connection to database
+    include_once '../db/connection.php';#connection to database
     include_once '../Model/Updatedata.php';#update Model
 
 
@@ -13,19 +13,22 @@
         $date = date('m/d/Y h:i:s a');
         pg_query($conn,"insert into tb_updates(title,filename,note,post_datetime,account_id,repository_id)".
         "values('".$updatedata->getTitle(). "','" .$updatedata->getFilename()."','".$updatedata->getNote().
-        "','".$date."','".$updatedata->getAccountId()."','".$updatedata->getRepositoryId().")");
+        "','".$date."',".$updatedata->getAccountId().",".$updatedata->getRepositoryId().")");
     }
 
     function ReadPost($conn,$updatedata = new Updatedata)
     {
+        
         if($updatedata->getRepositoryId() != 0 && $updatedata->getAccountId() != 0)
         {
+            //This is used to update/edit user post
             //search by all members
             $dbData = pg_query($conn,"select * from tb_updates where account_id = " .$updatedata->getAccountId(). " and repository_id = ".
             $updatedata->getRepositoryId());
         }
         else if($updatedata->getId() == 0)
         {
+            //This is used to get retrieve all repository post
             //search by repository creator
             $dbData = pg_query($conn, "select * from tb_updates where repository_id = " .$updatedata->getRepositoryId());
         }

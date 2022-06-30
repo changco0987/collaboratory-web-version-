@@ -93,6 +93,9 @@
       {
           sessionStorage.setItem('repositoryName',repoName);
           sessionStorage.setItem('repositoryid',repoId);
+
+          document.cookie = "repositoryName="+repoName;
+          document.cookie = "repositoryid="+repoId;
           window.location = "../page/repoDashboard.php";
       }   
     </script>

@@ -1,6 +1,6 @@
 <?php
 
-    include_once 'connection.php';#connection to database
+    include_once '../db/connection.php';#connection to database
     include_once '../Model/Repodata.php';#User Model
 
 

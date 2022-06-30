@@ -82,16 +82,7 @@ body{
     margin-left: 2%;
 }
 
-    
-.list-group{
-    max-height: 800px;
-    margin-bottom: 10px;
-    overflow-y:scroll;
-    -webkit-overflow-scrolling: touch;
-    border-radius: 5px;
-    font-size: 22px;
 
-}
 
 .list-group-item{
     background-color: #171433;
