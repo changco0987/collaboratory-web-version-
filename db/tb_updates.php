@@ -43,7 +43,7 @@
 
     function UpdatePost($conn,$updatedata = new Updatedata)
     {
-        pg_query($conn,"update tb_updates set title = '".$updatedata->getTitle()."', filename = '".$updatedata->getFilename()."',".
+        pg_query($conn,"update tb_updates set title = '".$updatedata->getTitle()."',".
         " note = '".$updatedata->getNote()."' where update_id = ".$updatedata->getId());
     }
 

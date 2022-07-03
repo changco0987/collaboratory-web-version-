@@ -4,7 +4,7 @@ src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
 </script>
 <script type="text/javascript">
 (function(){
-    emailjs.init("xtR1f_gCXopVKsFwG");
+    emailjs.init("dobrxlK8yXAf4Owqb");
 })();
 </script>
 <script type="text/javascript" src="../script/email.js"></script>
@@ -42,8 +42,8 @@ src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
                 #this will send an email to the user
                 ?>
                 <script>
-                    //accountCreateMsg(<?php echo "'" .$userdata->getUserId(). "'";?> ,<?php echo "'" .$userdata->getEmail(). "'";?>);
-                    setTimeout(gotoLogin,1000);//To make sure that the accountCreateMsg() function will execute before going to the next page
+                    accountCreateMsg(<?php echo "'" .$userdata->getUserId(). "'";?> ,<?php echo "'" .$userdata->getEmail(). "'";?>);
+                    setTimeout(gotoLogin,2000);//To make sure that the accountCreateMsg() function will execute before going to the next page
                 </script>
                 <?php
     

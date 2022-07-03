@@ -9,8 +9,11 @@
     session_start();
     $_SESSION['repoid'] = $dbData['repository_id'];
     $_SESSION['reponame'] = $dbData['repositoryname'];
-    $_SESSION['members'] = json_encode($dbData['members']);
+    $memArray = array();
+    $memArray = json_encode($dbData['members']);
+    $_SESSION['members'] = $memArray;
 
+    echo json_decode($memArray);
    /* $repoadata = array();
     $repoadata = $dbData['members'];
 

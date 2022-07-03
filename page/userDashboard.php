@@ -30,10 +30,12 @@
 
     session_start();
     
-    if(isset($_SESSION['reponame']))
+    if(isset($_SESSION['reponame']) || isset($_SESSION['repoid']))
     {
       unset($_SESSION['reponame']);
       unset($_SESSION['members']);
+
+      unset($_SESSION['repoid']);
     }
 ?>
     <div class="container-fluid mt-3 flex-fill" id="sectionContainer">
@@ -58,8 +60,8 @@
             <div class="btnContainer">
               <button type="button" class="btn btn-primary" id="createRepoBtn" onclick="repoSett()">
                 <span class="btn-label"><i class="bi-folder"></i></span>Create Repository</button>
-              <button type="button" class="btn btn-primary" id="accSettBtn" onclick="repoSett()">
-                <span class="btn-label"><i class="bi-gear"></i></span>Account Settings</button>
+            <!--  <button type="button" class="btn btn-primary" id="accSettBtn" onclick="repoSett()">
+                <span class="btn-label"><i class="bi-gear"></i></span>Account Settings</button> -->
               <button type="button" class="btn btn-primary" id="signoutBtn" onclick="logout()">
                 <span class="btn-label"><i class="bi-back"></i></span>Sign-out</button>
             </div>

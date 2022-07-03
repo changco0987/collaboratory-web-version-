@@ -10,24 +10,11 @@ var storeId = [];
 */
 
 
-if(storeId !== null)
-{
-    for(const btnId of storeId)
-    {
-        //it will check first if this id is exist
-        var checkId = document.getElementById(btnId[0]);
 
-        if(checkId!=null)
-        {
-            //This will change the previously selected btn member
-            document.getElementById(btnId[0]).src = '../Asset/checkIcon.png';
-        }
-    }
-}
 
 if(sessionStorage.getItem("memberList") !== null)
 {
-
+    
     storeId = JSON.parse(sessionStorage.getItem("memberList"));
 
 
@@ -43,6 +30,24 @@ if(sessionStorage.getItem("memberList") !== null)
         }
     }
 }
+
+
+if(storeId !== null)
+{
+    for(const btnId of storeId)
+    {
+        //it will check first if this id is exist
+        var checkId = document.getElementById(btnId[0]);
+
+        if(checkId!=null)
+        {
+            //This will change the previously selected btn member
+            document.getElementById(btnId[0]).src = '../Asset/checkIcon.png';
+        }
+    }
+}
+
+
 
 var searchValue = function(inputValue)
                 {

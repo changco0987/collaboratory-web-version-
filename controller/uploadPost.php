@@ -59,6 +59,7 @@
             }
             $updatedata->setFilename($tempFilename);
             $uploadedFile = $_FILES['fileTb']['tmp_name'];
+            echo $tempFilename;
             copy($uploadedFile,$webPath.$tempFilename);//This will move the uploaded file into file directory (web)
             copy($uploadedFile,$desktopPath.$tempFilename);//This will move the uploaded file into file directory (desktop) 
            
